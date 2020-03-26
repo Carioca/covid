@@ -1,0 +1,1 @@
+Esse projeto presume o uso de `pipenv`

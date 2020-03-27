@@ -1,18 +1,10 @@
 
 from matplotlib import pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 from scipy import integrate
 
-def solve_sir(S_i=210_000_000., I_i=2200., R_i=100., beta=0.15, mu=14):
+def solve_sir(S_i=210_000_000., I_i=2200., R_i=100., beta=0.16, mu=14, dias=365, N=24):
     """Plot a solution to the SIR differential equations."""
-    max_time = 100.
-    N = 24
-    
-#     fig = plt.figure()
-#     ax = fig.add_axes([0, 0, 1, 1])
-    
-#     ax.set_xlim((0, max_time))
     
     def sir_deriv(s_i_r, t0, beta=beta, mu=mu):
         """Compute the time-derivative of a Lorenz system."""
@@ -24,8 +16,10 @@ def solve_sir(S_i=210_000_000., I_i=2200., R_i=100., beta=0.15, mu=14):
             i/mu
         ]
     
-    t = np.linspace(0,max_time,int(N*max_time))
+    t = np.linspace(0,dias,int(N*dias))
     s_i_r_t = integrate.odeint(sir_deriv, (S_i, I_i, R_i), t)
     plt.plot(t, s_i_r_t)
+    plt.rcParams["figure.figsize"] = (12, 9) # (w, h)
     plt.show()
+    print("R_0 = "+str(beta*mu))
     return t, s_i_r_t

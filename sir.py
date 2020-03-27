@@ -18,7 +18,6 @@ def solve_sir(S_i=210_000_000., I_i=2200., R_i=100., beta=0.16, mu=14, dias=365,
     t = np.linspace(0,dias,int(N*dias))
     s_i_r_t = integrate.odeint(sir_deriv, (S_i, I_i, R_i), t)
     plt.plot(t, s_i_r_t)
-    plt.rcParams["figure.figsize"] = (12, 9) # (w, h)
     plt.show()
     print("R_0 = "+str(beta*mu))
     return t, s_i_r_t

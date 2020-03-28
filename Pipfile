@@ -11,6 +11,8 @@ numpy = "*"
 scipy = "*"
 matplotlib = "*"
 ipywidgets = "*"
+mplcursos = "*"
+mplcursors = "*"
 
 [requires]
 python_version = "3.8"

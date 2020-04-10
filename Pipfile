@@ -6,13 +6,12 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+requests = "*"
 jupyterlab = "*"
 numpy = "*"
 scipy = "*"
 matplotlib = "*"
 ipywidgets = "*"
-mplcursos = "*"
-mplcursors = "*"
 
 [requires]
 python_version = "3.8"
